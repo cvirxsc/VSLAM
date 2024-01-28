@@ -17,10 +17,11 @@
 		<param name="sensor_model.max_range" value="10.0" />
 
 		<!-- data source to integrate (PointCloud2) -->
-		<remap from="cloud_in" to="/stereo/points" />
+		<remap from="cloud_in" to="/camera/camera/depth/color/points" />
 
 		<param name="full" value="true" />
-		<param name="octomap_path" value="/home/rangeronmars/ros2_ws/src/dll/maps/bedroom.bt" />
+		<!--remember to construct or change the DIR Path -->
+		<param name="octomap_path" value="/home/rm/ros2_ws/src/dll/maps/bedroom.bt" />
 
 		<!-- maximum range to integrate (speedup!) -->
 		<param name="sensor_model.max_range" value="10.0" />
