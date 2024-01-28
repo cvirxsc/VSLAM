@@ -15,3 +15,7 @@ The main branch for ROS2 Foxy and newer is `ros2`.
 ros2 run octomap_server octomap_saver_node --ros-args -p octomap_path:=(path for saving octomap)
 ```
 Note: The extension of octomap path should be `.bt` or `.ot`
+
+#### Dependency
+sudo apt-get install cmake doxygen libqt4-dev libqt4-opengl-dev libqglviewer-dev-qt4
+sudo apt-get install ros-humble-octomap-msgs
