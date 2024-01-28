@@ -71,8 +71,44 @@
       cd ~/ros2_ws
       . install/local_setup.bash
      ```
-  
 
+## Usage 
+### Maping
+#### 1.Launch D435i Camera
+```
+ros2 launch realsense2_camera rs_launch.py
+```
+#### 2.Launch VINS-FUSION NODE
+```
+ros2 run vins vins_node ~/DIRPATH/VINS-Fusion-ROS2/config/realsense_d435i/realsense_stereo_imu_config.yaml
+ros2 run loop_fusion loop_fusion_node  ~/DIRPATH/VINS-Fusion-ROS2/config/realsense_d435i/realsense_stereo_imu_config.yaml
+```
+#### 3.Launch octomap_server
+```
+ros2 launch octomap_server octomap_mapping.launch.xml
+```
+#### RVIZ2
+```
+ros2 launch vins vins_rviz.launch.xml
+```
+### Navigation
+#### 1.Launch D435i Camera
+```
+ros2 launch realsense2_camera rs_launch.py
+```
+#### 2.Launch VINS-FUSION NODE
+```
+ros2 run vins vins_node ~/DIRPATH/VINS-Fusion-ROS2/config/realsense_d435i/realsense_stereo_imu_config.yaml
+ros2 run loop_fusion loop_fusion_node  ~/DIRPATH/VINS-Fusion-ROS2/config/realsense_d435i/realsense_stereo_imu_config.yaml
+```
+#### 3.Convert  Pointcloud2_To_Gridmap
+```
+ros2 launch grid_map_demos pointcloud2_to_gridmap_demo_launch.py
+```
+#### 3.Launch Nav2
+```
+ros2 launch nav2_bringup sentry_launch.py
+```
 
 
 
