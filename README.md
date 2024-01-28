@@ -125,9 +125,9 @@ sudo apt-get install ros-humble-octomap-msgs
 ```
 
 ### Gridmap
-
-
-
+```
+git clone https://hub.fgit.cf/ANYbotics/grid_map.git -b ros2
+```
 
 
 
