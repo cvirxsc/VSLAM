@@ -117,8 +117,12 @@ ros2 launch nav2_bringup sentry_launch.py
 - [Eigen-3.3.9](https://github.com/zinuok/VINS-Fusion#-eigen-1)
 
 ### octomap_server
--sudo apt-get install cmake doxygen libqt4-dev libqt4-opengl-dev libqglviewer-dev-qt4
--sudo apt-get install ros-humble-octomap-msgs
+```
+sudo apt-get install cmake doxygen libqt4-dev libqt4-opengl-dev libqglviewer-dev-qt4
+```
+```
+sudo apt-get install ros-humble-octomap-msgs
+```
 
 ### Gridmap
 
