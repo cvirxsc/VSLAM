@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/usr/include/eigen3/**",
+                "/usr/include/pcl-1.12/**",
+                "/home/helloworld/ros2_ws/src/grid_map/grid_map_demos/include/**",
+                "/opt/ros/humble/include//**",
+                "/usr/include/opencv4/**"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}
