@@ -71,13 +71,63 @@
       cd ~/ros2_ws
       . install/local_setup.bash
      ```
-  
 
+## Usage 
+### 1.Maping
+#### Launch D435i Camera
+```
+ros2 launch realsense2_camera rs_launch.py
+```
+#### Launch VINS-FUSION NODE
+```
+ros2 run vins vins_node ~/DIRPATH/VINS-Fusion-ROS2/config/realsense_d435i/realsense_stereo_imu_config.yaml
+ros2 run loop_fusion loop_fusion_node  ~/DIRPATH/VINS-Fusion-ROS2/config/realsense_d435i/realsense_stereo_imu_config.yaml
+```
+#### Launch octomap_server
+```
+ros2 launch octomap_server octomap_mapping.launch.xml
+```
+#### Rviz2
+```
+ros2 launch vins vins_rviz.launch.xml
+```
+### 2.Navigation
+#### Launch D435i Camera
+```
+ros2 launch realsense2_camera rs_launch.py
+```
+#### Launch VINS-FUSION NODE
+```
+ros2 run vins vins_node ~/DIRPATH/VINS-Fusion-ROS2/config/realsense_d435i/realsense_stereo_imu_config.yaml
+ros2 run loop_fusion loop_fusion_node  ~/DIRPATH/VINS-Fusion-ROS2/config/realsense_d435i/realsense_stereo_imu_config.yaml
+```
+#### Convert  Pointcloud2_To_Gridmap
+```
+ros2 launch grid_map_demos pointcloud2_to_gridmap_demo_launch.py
+```
+#### Launch Nav2
+```
+ros2 launch nav2_bringup sentry_launch.py
+```
 
+## Install the Dependency
+### VINS-FUSION
+- OpenCV3.4.1
+- [Ceres Solver-2.1.0](http://ceres-solver.org/installation.html)
+- [Eigen-3.3.9](https://github.com/zinuok/VINS-Fusion#-eigen-1)
 
+### octomap_server
+```
+sudo apt-get install cmake doxygen libqt4-dev libqt4-opengl-dev libqglviewer-dev-qt4
+```
+```
+sudo apt-get install ros-humble-octomap-msgs
+```
 
-
-
+### Gridmap
+```
+git clone https://hub.fgit.cf/ANYbotics/grid_map.git -b humble
+```
 
 
 

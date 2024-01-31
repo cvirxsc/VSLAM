@@ -17,6 +17,6 @@
 		<param name="occupancy_min_z" value="-0.1" />
 		<param name="occupancy_max_z" value="3.0" />
 		<!-- data source to integrate (PointCloud2) -->
-		<remap from="cloud_in" to="/stereo/points" />
+		<remap from="cloud_in" to="/camera/camera/depth/color/points" />
 	</node>
 </launch>
