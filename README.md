@@ -72,6 +72,10 @@
       . install/local_setup.bash
      ```
 
+## Flowchart
+
+![Flowchart](https://github.com/Github-YoMi-Ya/VSLAM/blob/main/pic/flowchatpic.jpg)
+
 ## Usage 
 ### 1.Maping
 #### Launch D435i Camera
@@ -126,8 +130,9 @@ sudo apt-get install ros-humble-octomap-msgs
 
 ### Gridmap
 ```
-git clone https://hub.fgit.cf/ANYbotics/grid_map.git -b humble
+sudo apt-get install libeigen3-dev
 ```
+[More Information To Here](https://hub.fgit.cf/ANYbotics/grid_map)
 
 ### Navigation2
 ```
