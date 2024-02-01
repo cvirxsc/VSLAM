@@ -9,6 +9,9 @@ def generate_launch_description():
                 package='imu_complementary_filter',
                 executable='complementary_filter_node',
                 name='complementary_filter_gain_node',
+                remappings=[
+            ('/imu/data_raw', '/camera/imu'),
+        ],
                 output='screen',
                 parameters=[
                     {'do_bias_estimation': True},
