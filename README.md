@@ -82,33 +82,58 @@
 ```
 ros2 launch realsense2_camera rs_launch.py
 ```
+
+#### Launch IMU-Tools
+```
+ros2 launch imu_complementary_filter complementary_filter.launch.py
+```
+Or
+```
+ros2 run imu_complementary_filter complementary_filter_node --ros-args -p use_mag:=false -r /imu/data_raw:=/camera/imu
+```
+
 #### Launch VINS-FUSION NODE
 ```
 ros2 run vins vins_node ~/DIRPATH/VINS-Fusion-ROS2/config/realsense_d435i/realsense_stereo_imu_config.yaml
 ros2 run loop_fusion loop_fusion_node  ~/DIRPATH/VINS-Fusion-ROS2/config/realsense_d435i/realsense_stereo_imu_config.yaml
 ```
+
 #### Launch octomap_server
 ```
 ros2 launch octomap_server octomap_mapping.launch.xml
 ```
+
 #### Rviz2
 ```
 ros2 launch vins vins_rviz.launch.xml
 ```
+
 ### 2.Navigation
 #### Launch D435i Camera
 ```
 ros2 launch realsense2_camera rs_launch.py
 ```
+
+#### Launch IMU-Tools
+```
+ros2 launch imu_complementary_filter complementary_filter.launch.py
+```
+Or
+```
+ros2 run imu_complementary_filter complementary_filter_node --ros-args -p use_mag:=false -r /imu/data_raw:=/camera/imu
+```
+
 #### Launch VINS-FUSION NODE
 ```
 ros2 run vins vins_node ~/DIRPATH/VINS-Fusion-ROS2/config/realsense_d435i/realsense_stereo_imu_config.yaml
 ros2 run loop_fusion loop_fusion_node  ~/DIRPATH/VINS-Fusion-ROS2/config/realsense_d435i/realsense_stereo_imu_config.yaml
 ```
+
 #### Convert  Pointcloud2_To_Gridmap
 ```
 ros2 launch grid_map_demos pointcloud2_to_gridmap_demo_launch.py
 ```
+
 #### Launch Nav2
 ```
 ros2 launch nav2_sentry_bringup sentry_launch.py 
@@ -149,8 +174,10 @@ sudo apt install -y ros-humble-tf2-geometry-msgs
 sudo apt install -y libboost-all-dev
 sudo apt install -y libgoogle-glog-dev
 ```
-
-
+### IMU-Tools
+```
+git clone -b <YOUR_ROSDISTO> https://github.com/CCNYRoboticsLab/imu_tools.git
+```
 
 [humble-badge]: https://img.shields.io/badge/-HUMBLE-orange?style=flat-square&logo=ros
 [humble]: https://docs.ros.org/en/humble/index.html
