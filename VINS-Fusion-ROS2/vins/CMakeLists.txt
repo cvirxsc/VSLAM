@@ -59,7 +59,7 @@ add_library(vins_lib
     src/featureTracker/feature_tracker.cpp)
 target_link_libraries(vins_lib  ${OpenCV_LIBS} ${CERES_LIBRARIES})
 
-ament_target_dependencies(vins_lib rclcpp rcpputils std_msgs visualization_msgs geometry_msgs nav_msgs tf2 tf2_ros cv_bridge camera_models image_transport)
+ament_target_dependencies(vins_lib rclcpp rcpputils std_msgs visualization_msgs geometry_msgs nav_msgs tf2 tf2_ros cv_bridge camera_models image_transport tf2_geometry_msgs)
 
 add_executable(vins_node src/rosNodeTest.cpp)
 ament_target_dependencies(vins_node rclcpp rcpputils std_msgs visualization_msgs builtin_interfaces geometry_msgs nav_msgs tf2 tf2_ros tf2_geometry_msgs cv_bridge camera_models image_transport)

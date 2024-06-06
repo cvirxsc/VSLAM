@@ -10,7 +10,7 @@ def generate_launch_description():
                 executable='complementary_filter_node',
                 name='complementary_filter_gain_node',
                 remappings=[
-            ('/imu/data_raw', '/camera/imu'),
+            ('/imu/data_raw', '/camera/camera/imu'),
         ],
                 output='screen',
                 parameters=[

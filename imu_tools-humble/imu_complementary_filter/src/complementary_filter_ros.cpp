@@ -38,6 +38,8 @@
 #include <tf2/LinearMath/Matrix3x3.h>
 #include <tf2/LinearMath/Transform.h>
 #include <tf2/LinearMath/Vector3.h>
+#include <rclcpp/qos.hpp>
+
 
 namespace imu_tools {
 
@@ -53,23 +55,31 @@ ComplementaryFilterROS::ComplementaryFilterROS()
 
     // Register publishers:
     // TODO: Check why ros::names::resolve is need here
-    imu_publisher_ = this->create_publisher<ImuMsg>("imu/data", queue_size);
+    imu_publisher_ = this->create_publisher<ImuMsg>("imu/data", rclcpp::QoS(queue_size));
 
     if (publish_debug_topics_)
     {
         rpy_publisher_ =
             this->create_publisher<geometry_msgs::msg::Vector3Stamped>(
-                "imu/rpy/filtered", queue_size);
+                "imu/rpy/filtered", rclcpp::QoS(queue_size));
 
         if (filter_.getDoBiasEstimation())
         {
             state_publisher_ = this->create_publisher<std_msgs::msg::Bool>(
-                "/imu/steady_state", queue_size);
+                "/imu/steady_state", rclcpp::QoS(queue_size));
         }
     }
 
-    // Register IMU raw data subscriber.
-    imu_subscriber_.reset(new ImuSubscriber(this, "/imu/data_raw"));
+ // Create QoS profile
+    rclcpp::QoS qos_profile = rclcpp::QoS(rclcpp::KeepLast(10))
+                                .reliability(RMW_QOS_POLICY_RELIABILITY_BEST_EFFORT)
+                                .durability(RMW_QOS_POLICY_DURABILITY_VOLATILE);
+
+    // Convert rclcpp::QoS to rmw_qos_profile_t
+    rmw_qos_profile_t rmw_qos = qos_profile.get_rmw_qos_profile();
+
+    // Register IMU raw data subscriber
+    imu_subscriber_ = std::make_shared<message_filters::Subscriber<ImuMsg>>(this, "/imu/data_raw", rmw_qos);
 
     // Register magnetic data subscriber.
     if (use_mag_)
